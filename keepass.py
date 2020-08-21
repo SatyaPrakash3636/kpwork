@@ -119,6 +119,7 @@ else:
 
 # Defining HTML style and writing list of server which were found in keepass DB
         with open(f'{dbname}.html', 'a') as f4:
+            f4.write('<head> <meta name="description" content="Keepass Search Result"> <meta name="author" content="Satyaprakash Prasad"> </head>')
             f4.write("<style> body { background-color: darkslategrey; color: azure; font-size: 1.1em; } h1 { color: coral; } #intro { font-size: 1.3em; } .colorful { color: orange; } .myTable { width: 100%; text-align: center; background-color: lemonchiffon; border-collapse: collapse; } .myTable th { background-color: goldenrod; color: white; } .myTable td { padding: 2px; border: 1px solid goldenrod; color: black } .myTable th { padding: 2px; border: 1px solid goldenrod; } </style>")
             f4.write(f'<h1>{len(finallist)} servers found in {dbname} Keepass</h1>')
             if args.subject:
@@ -173,6 +174,7 @@ else:
 
     else:
         with open(f'{dbname}.html', 'a') as f4:
+            f4.write('<head> <meta name="description" content="Keepass Search Result"> <meta name="author" content="Satyaprakash Prasad"> </head>')
             f4.write("<style> body { background-color: darkslategrey; color: azure; font-size: 1.1em; } h1 { color: coral; } #intro { font-size: 1.3em; } .colorful { color: orange; } .myTable { width: 100%; text-align: center; background-color: lemonchiffon; border-collapse: collapse; } .myTable th { background-color: goldenrod; color: white; } .myTable td { padding: 2px; border: 1px solid goldenrod; color: black } .myTable th { padding: 2px; border: 1px solid goldenrod; } </style>")
             f4.write(f'<h1>{len(finallistdups)} servers found in {dbname} Keepass</h1>')
             if args.subject:
