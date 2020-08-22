@@ -14,11 +14,11 @@ from email.mime.text import MIMEText
 import smtplib
 
 parser = argparse.ArgumentParser(
-    description='Search for string including partial word in Keepass Database')
+    description='Description : Search for string including partial word in Keepass Database')
 parser.add_argument(
     'inputfile', help='file which contains partial (or complete) strings to search')
 parser.add_argument('keepassdb', help='Path to Keepass Database file')
-parser.add_argument('emailto', help='TO Email ID(Comma separated)')
+parser.add_argument('emailto', help='TO Email ID (Comma separated)')
 parser.add_argument('--subject', '-s',
                     help='Email subject for which scope is being checked')
 
@@ -58,6 +58,7 @@ except Exception:
     print(f"Exception: pykeepass.exceptions.CredentialsError, kindly provide correct password")
 
 else:
+    print(f"Looking for input data in {dbname} keepass")
     entry = kp.find_entries(title='.*', regex=True,
                             recursive=True, first=False)
     alldata = []
@@ -174,6 +175,7 @@ else:
         # for found in finallist:
         #     print(f'{found} found in Keepass')
         send_email(toemail, outhtml)
+        print(f'Output has been emailed to "{toemail}"')
 
     else:
         with open(f'{dbname}.html', 'a') as f4:
